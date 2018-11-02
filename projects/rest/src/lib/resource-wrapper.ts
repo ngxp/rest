@@ -1,24 +1,24 @@
-import { has, isUndefined } from 'lodash-es';
-import { Observable } from 'rxjs/Observable';
+import { Observable, of } from 'rxjs';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/map';
+import { map } from 'rxjs/operators';
 import { HttpService, UrlParams } from './http.service';
 import { toRequestBody } from './request-body-factory';
 import { getEmbeddedResource, getUrl, hasEmbeddedResource } from './resource-utils';
-import { Link, Resource } from './resource.model';
+import { Resource } from './resource.model';
 
 export class ResourceWrapper {
 
     constructor(
         private httpService: HttpService,
         private resourceObj: Resource
-    ) {    }
+    ) { }
 
     /**
      * Retrieves a single resource from embedded or linked resources
      * @param linkRel Name of the relation in _embedded or _links
      * @param urlParams URL Parameters
-     * @returns {Observable<T>} Observable of the requested Resource
+     * @returns Observable of the requested Resource
      */
     get<T>(urlParams?: UrlParams): Observable<T>;
     get<T>(linkRel: string, urlParams?: UrlParams): Observable<T>;
@@ -32,12 +32,6 @@ export class ResourceWrapper {
         return this.getLinkedResource<T>(this.resourceObj, linkRel, urlParams);
     }
 
-    /**
-     *
-     * @param linkRel
-     * @param body
-     * @param urlParams
-     */
     post<T, U>(resourcePayload: T, urlParams?: UrlParams): Observable<U>;
     post<T, U>(linkRel: string, body: T, urlParams?: UrlParams): Observable<U>;
     post<T, U>(...args): Observable<U> {
@@ -49,7 +43,9 @@ export class ResourceWrapper {
                 toRequestBody(body),
                 urlParams
             )
-            .map(response => (<U> response));
+            .pipe(
+                map(response => (<U>response))
+            );
     }
 
     put<T, U>(resourcePayload: T, urlParams?: UrlParams): Observable<U>;
@@ -63,7 +59,9 @@ export class ResourceWrapper {
                 toRequestBody(body),
                 urlParams
             )
-            .map(response => (<U> response));
+            .pipe(
+                map(response => (<U>response))
+            );
     }
 
     patch<T, U>(resourcePayload: T, urlParams?: UrlParams): Observable<U>;
@@ -77,7 +75,9 @@ export class ResourceWrapper {
                 toRequestBody(body),
                 urlParams
             )
-            .map(response => (<U> response));
+            .pipe(
+                map(response => (<U>response))
+            );
     }
 
     delete<T>(urlParams?: UrlParams): Observable<T>;
@@ -90,7 +90,9 @@ export class ResourceWrapper {
                 getUrl(this.resourceObj, linkRel),
                 urlParams
             )
-            .map(response => (<U> response));
+            .pipe(
+                map(response => (<U>response))
+            );
     }
 
 
@@ -137,7 +139,7 @@ export class ResourceWrapper {
     }
 
     private getEmbeddedResource<T>(resource: Resource, linkRel: string): Observable<T> {
-        return Observable.of<T>(getEmbeddedResource(resource, linkRel));
+        return of<T>(getEmbeddedResource(resource, linkRel));
     }
 
     private getLinkedResource<T>(resource: Resource, linkRel: string, urlParams?: UrlParams): Observable<T> {
@@ -146,6 +148,8 @@ export class ResourceWrapper {
                 getUrl(resource, linkRel),
                 urlParams
             )
-            .map<Object, T>(responseObject => <T> responseObject);
+            .pipe(
+                map<Object, T>(responseObject => <T>responseObject)
+            );
     }
 }

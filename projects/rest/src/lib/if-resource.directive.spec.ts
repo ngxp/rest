@@ -1,7 +1,7 @@
 import { TemplateRef, ViewContainerRef } from '@angular/core';
-import { getAddressResource, getUserResource } from '@bms-common/rest/test';
 import { IfResourceDirective } from './if-resource.directive';
 import { Resource } from './resource.model';
+import { getUserResource, getAddressResource } from '../../test';
 
 describe('IfResourceDirective', () => {
     const templateRef = {};
@@ -27,8 +27,8 @@ describe('IfResourceDirective', () => {
         clearSpyCalls();
 
         ifResourceDirective = new IfResourceDirective(
-            (<any> templateRef),
-            (<any> viewContainer)
+            (<any>templateRef),
+            (<any>viewContainer)
         );
     });
 

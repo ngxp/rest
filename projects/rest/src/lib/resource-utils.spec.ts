@@ -1,8 +1,8 @@
 import { cloneDeep } from 'lodash-es';
-import { getListResourceItems, ResourceMap } from '../index';
-import { getUser, UserResource, getUserListResource, getUserResource, getUserResources } from '@bms-common/rest/test';
-import { getEmbeddedResource, getLink, getResourceListDiff, getResourceState, getUrl, hasEmbeddedResource, hasLink, isResource, toUriList, toResourceMap } from './resource-utils';
+import { getUser, getUserListResource, getUserResource, getUserResources, UserResource } from '../../test';
+import { getEmbeddedResource, getLink, getListResourceItems, getResourceListDiff, getResourceState, getUrl, hasEmbeddedResource, hasLink, isResource, toResourceMap, toUriList } from './resource-utils';
 import { LinkRel } from './resource.linkrel';
+import { ResourceMap } from './resource.model';
 
 describe('resourceUtils', () => {
     const user = getUser();
@@ -31,7 +31,7 @@ describe('resourceUtils', () => {
 
         it(`throws an error if the resource does not have any links (and therefore is no valid resource)`, () => {
             expect(() => {
-                getLink((<any> user), 'orders');
+                getLink((<any>user), 'orders');
             }).toThrowError();
         });
 
@@ -53,7 +53,7 @@ describe('resourceUtils', () => {
 
         it(`throws an error if the resource does not have any links (and therefore is no valid resource)`, () => {
             expect(() => {
-                getUrl((<any> user), 'orders');
+                getUrl((<any>user), 'orders');
             }).toThrowError();
         });
 
@@ -98,7 +98,7 @@ describe('resourceUtils', () => {
         });
 
         it('returns false if the resource does not have any embedded resources', () => {
-            expect(hasEmbeddedResource((<any> user), 'address')).toBeFalse();
+            expect(hasEmbeddedResource((<any>user), 'address')).toBeFalse();
         });
     });
 
@@ -115,7 +115,7 @@ describe('resourceUtils', () => {
 
         it('throws an error if the resource does not have an embedded resource identified by the given link relation', () => {
             expect(() => {
-                getEmbeddedResource((<any> user), 'address');
+                getEmbeddedResource((<any>user), 'address');
             }).toThrowError();
         });
 
@@ -123,13 +123,13 @@ describe('resourceUtils', () => {
             expect(() => {
                 getEmbeddedResource(userResource, 'invalid', false);
             }).not.toThrowError();
-        })
+        });
 
         it('does not throw if flag is set and the resource does not have an embedded resource identified by the given link relation', () => {
             expect(() => {
                 getEmbeddedResource((<any>user), 'address', false);
             }).not.toThrowError();
-        })
+        });
     });
 
     describe('getListResourceItems', () => {
@@ -179,13 +179,13 @@ describe('resourceUtils', () => {
     });
 
     describe('toResourceMap', () => {
-        it('returns an map of resources with the specified link relation as key', () => {       
+        it('returns an map of resources with the specified link relation as key', () => {
             const expectedResource1 = userResources[0];
             const expectedResource2 = userResources[1];
             const expectedResource3 = userResources[2];
             const fromResourceArray: UserResource[] = userResources;
 
-            const actual: ResourceMap<UserResource> = toResourceMap<UserResource>(fromResourceArray,'address');
+            const actual: ResourceMap<UserResource> = toResourceMap<UserResource>(fromResourceArray, 'address');
 
             expect(actual).not.toBeNull();
             expect(actual[getUrl(expectedResource1, 'address')]).toBe(expectedResource1);
@@ -201,7 +201,7 @@ describe('resourceUtils', () => {
             expectedResource3._links['users'] = { href: '/resources/3/users' };
             const fromResourceArray = [expectedResource1, expectedResource2, expectedResource3];
 
-            const actual: ResourceMap<UserResource> = toResourceMap<UserResource>(fromResourceArray,'users');
+            const actual: ResourceMap<UserResource> = toResourceMap<UserResource>(fromResourceArray, 'users');
 
             expect(actual).not.toBeNull();
             expect(actual['/resources/1/users']).toBe(expectedResource1);

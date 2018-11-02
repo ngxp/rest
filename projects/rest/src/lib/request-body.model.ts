@@ -1,6 +1,6 @@
 import { generateBoundary, toMultipartBody } from './multipart';
 import { Multipart } from './multipart.model';
-import { Resource, ResourceUri } from './resource.model';
+import { ResourceUri } from './resource.model';
 
 export class RequestBody<T> {
     constructor(

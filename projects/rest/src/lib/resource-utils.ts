@@ -1,6 +1,6 @@
-import { cloneDeep, difference, has, intersection, isEqual, isUndefined, omit } from 'lodash-es';
+import { difference, has, intersection, isUndefined, omit } from 'lodash-es';
 import { LinkRel } from './resource.linkrel';
-import { Link, Resource, ResourceUri, ResourceMap } from './resource.model';
+import { Link, Resource, ResourceMap, ResourceUri } from './resource.model';
 
 const emptyArray = [];
 
@@ -52,7 +52,7 @@ export function getEmbeddedResource<T>(resource: Resource, linkRel: string, thro
         return null;
     }
 
-    const embeddedResource = <any> resource._embedded[linkRel];
+    const embeddedResource = <any>resource._embedded[linkRel];
 
     if (isUndefined(embeddedResource)) {
         if (throwIfNotExists) {
@@ -61,7 +61,7 @@ export function getEmbeddedResource<T>(resource: Resource, linkRel: string, thro
         return null;
     }
 
-    return <T> embeddedResource;
+    return <T>embeddedResource;
 }
 
 export function getListResourceItems<T>(resource: Resource, listLinkRel: string, emptyList = emptyArray): T[] {
@@ -105,7 +105,7 @@ export function getResourceListDiff(previousResourceList: Resource[], updatedRes
 
 export function toResourceMap<T extends Resource>(resources: Resource[], keyLinkRel: string): ResourceMap<T> {
     return resources.filter(resource => hasLink(resource, keyLinkRel))
-        .reduce((resourceMap: ResourceMap<T>, resource: T) => {            
+        .reduce((resourceMap: ResourceMap<T>, resource: T) => {
             resourceMap[getUrl(resource, keyLinkRel)] = resource;
             return resourceMap;
         }, {});

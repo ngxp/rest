@@ -1,5 +1,5 @@
-import { initial, last, takeRight, times, uniq } from 'lodash-es';
-import { getMultipart } from '@bms-common/rest/test';
+import { initial, takeRight, times, uniq } from 'lodash-es';
+import { getMultipart } from '../../test';
 import { generateBoundary, toMultipartBody } from './multipart';
 
 describe('multipart', () => {

@@ -1,10 +1,9 @@
-import { Directive, Input, OnChanges, TemplateRef, ViewContainerRef } from '@angular/core';
-import { has } from 'lodash-es';
+import { Directive, Input, OnChanges, TemplateRef, ViewContainerRef, DoCheck } from '@angular/core';
 import { hasLink } from './resource-utils';
 import { Resource } from './resource.model';
 
 @Directive({ selector: '[ifResource]' })
-export class IfResourceDirective implements OnChanges {
+export class IfResourceDirective implements OnChanges, DoCheck {
 
     private hasView = false;
     private resource: Resource;

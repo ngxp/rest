@@ -5,7 +5,7 @@ export interface Link {
 
 export interface EmbeddedResources {
     [key: string]: Resource | Resource[];
-};
+}
 
 export interface Resource {
     _embedded?: EmbeddedResources;
@@ -23,6 +23,6 @@ export interface ResourceMap<T extends Resource> {
 }
 
 export interface ResourceUpdate<U, R extends Resource = Resource> {
-    resource: R,
-    update: U
+    resource: R;
+    update: U;
 }

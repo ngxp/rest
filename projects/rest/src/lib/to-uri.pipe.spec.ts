@@ -1,4 +1,4 @@
-import { getUserResource } from '@bms-common/rest/test';
+import { getUserResource } from '../../test';
 import { getUrl } from './resource-utils';
 import { ToUriPipe } from './to-uri.pipe';
 

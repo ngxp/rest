@@ -1,14 +1,7 @@
-import { CommonModule } from '@angular/common';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { TestBed, inject } from '@angular/core/testing';
-import { Observable } from 'rxjs/Observable';
+import { TestBed } from '@angular/core/testing';
 import 'rxjs/add/operator/map';
-import {
-    getOrder, getPartialAddress, getUpdatedAddress,
-    Address, AddressCityUpdate, AddressResource, Order, OrderListResource, UserResource,
-    getAddressResource, getOrderListResource, getUpdatedAddressResource, getUserResource
-} from '@bms-common/rest/test';
-import { HttpService } from './http.service';
+import { Address, AddressCityUpdate, AddressResource, getAddressResource, getOrder, getOrderListResource, getPartialAddress, getUpdatedAddress, getUpdatedAddressResource, getUserResource, Order, OrderListResource, UserResource } from '../../test';
 import { ResourceFactory } from './resource-factory';
 import { getEmbeddedResource, getUrl } from './resource-utils';
 import { Resource } from './resource.model';
@@ -21,7 +14,7 @@ describe('ResourceWrapper', () => {
     const userResource = getUserResource();
     const orderListResource = getOrderListResource();
     const order = getOrder();
-    const embeddedAddress = <AddressResource> getEmbeddedResource(userResource, 'address');
+    const embeddedAddress = <AddressResource>getEmbeddedResource(userResource, 'address');
     const addressResource = getAddressResource();
     const updatedAddress = getUpdatedAddress();
     const partialAddress = getPartialAddress();
@@ -93,7 +86,7 @@ describe('ResourceWrapper', () => {
             const invalidResource = {};
 
             expect(() => {
-                resource.from(<Resource> invalidResource)
+                resource.from(<Resource>invalidResource)
                     .get<any>('invalid')
                     .subscribe();
             })
@@ -228,10 +221,10 @@ describe('ResourceWrapper', () => {
             const urlParams = { force: true };
 
             resource.from(userResource)
-            .post<Order, OrderListResource>('orders', null, urlParams)
-            .subscribe(response => {
-                expect(response).toEqual(orderListResource);
-            });
+                .post<Order, OrderListResource>('orders', null, urlParams)
+                .subscribe(response => {
+                    expect(response).toEqual(orderListResource);
+                });
 
             const request = httpMock.expectOne(getUrl(userResource, 'orders') + '?force=true');
 

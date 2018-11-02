@@ -1,6 +1,6 @@
-import { getAddressResource, getUserResource } from '@bms-common/rest/test';
 import { EnableIfResourceDirective } from './enable-if-resource.directive';
 import { Resource } from './resource.model';
+import { getUserResource, getAddressResource } from '../../test';
 
 describe('EnableIfResourceDirective', () => {
     const enableIfResourceDirective = new EnableIfResourceDirective();

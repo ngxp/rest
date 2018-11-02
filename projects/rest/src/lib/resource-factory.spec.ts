@@ -1,8 +1,6 @@
-import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { TestBed, inject } from '@angular/core/testing';
-import { getUserResource } from '@bms-common/rest/test';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { TestBed } from '@angular/core/testing';
+import { getUserResource } from '../../test';
 import { ResourceFactory } from './resource-factory';
 import { getUrl } from './resource-utils';
 import { ResourceWrapper } from './resource-wrapper';
