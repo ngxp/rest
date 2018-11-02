@@ -1,6 +1,5 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import 'rxjs/add/operator/map';
 import { Address, AddressCityUpdate, AddressResource, getAddressResource, getOrder, getOrderListResource, getPartialAddress, getUpdatedAddress, getUpdatedAddressResource, getUserResource, Order, OrderListResource, UserResource } from '../../test';
 import { ResourceFactory } from './resource-factory';
 import { getEmbeddedResource, getUrl } from './resource-utils';

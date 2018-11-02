@@ -109,25 +109,25 @@ describe('resourceUtils', () => {
 
         it('throws an error if the resource does not have any embedded resources', () => {
             expect(() => {
-                getEmbeddedResource(userResource, 'invalid');
+                getEmbeddedResource(userResource, 'invalid', true);
             }).toThrowError();
         });
 
         it('throws an error if the resource does not have an embedded resource identified by the given link relation', () => {
             expect(() => {
-                getEmbeddedResource((<any>user), 'address');
+                getEmbeddedResource((<any>user), 'address', true);
             }).toThrowError();
         });
 
         it('does not throw if flag is set and the resource does not have any embedded resources', () => {
             expect(() => {
-                getEmbeddedResource(userResource, 'invalid', false);
+                getEmbeddedResource(userResource, 'invalid');
             }).not.toThrowError();
         });
 
-        it('does not throw if flag is set and the resource does not have an embedded resource identified by the given link relation', () => {
+        it('does not throw if flag is set and the resource does not have an embedded resource', () => {
             expect(() => {
-                getEmbeddedResource((<any>user), 'address', false);
+                getEmbeddedResource((<any>user), 'address');
             }).not.toThrowError();
         });
     });

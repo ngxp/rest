@@ -1,9 +1,9 @@
 import { HttpClient, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { isNull, isUndefined, reduce } from 'lodash-es';
-import { RequestBody } from './request-body.model';
-import { switchMap, map, catchError } from 'rxjs/operators';
+import { isNull, isUndefined } from 'lodash-es';
 import { Observable, of, throwError } from 'rxjs';
+import { catchError, switchMap } from 'rxjs/operators';
+import { RequestBody } from './request-body.model';
 
 export interface Headers {
     [key: string]: any | any[];
@@ -20,120 +20,84 @@ export class HttpService {
         private httpClient: HttpClient
     ) { }
 
-    get(url: string, urlParams?: UrlParams) {
-        return this.httpClient.get(
+    get<T>(url: string, urlParams?: UrlParams): Observable<T> {
+        return this.httpClient.get<T>(
             url,
             this.getOptions(undefined, urlParams)
         );
     }
 
-    post(url: string, requestBody: RequestBody<any> = null, urlParams?: UrlParams) {
-        return this.httpClient.post(
+    post<T, U>(url: string, requestBody: RequestBody<T> = null, urlParams?: UrlParams): Observable<U> {
+        return this.httpClient.post<U>(
             url,
             requestBody.body,
             {
-                // TODO: remove this when Angular issues are resolved
-                responseType: 'text',
                 observe: 'response',
                 ...this.getOptions(requestBody, urlParams)
             }
         )
             .pipe(
                 switchMap(response => this.handlePostRedirect(response)),
-                // TODO: remove this when Angular issues are resolved
-                // https://github.com/angular/angular/issues/19090
-                // https://github.com/angular/angular/issues/19413
-                map(response => this.parseResponseBody(response.body)),
-                catchError(response => throwError(this.parseResponseBody(response.error)))
+                catchError(response => throwError(response.error))
             );
     }
 
-    put(url: string, requestBody: RequestBody<any> = null, urlParams?: UrlParams) {
-        return this.httpClient.put(
+    put<T, U>(url: string, requestBody: RequestBody<T> = null, urlParams?: UrlParams): Observable<U> {
+        return this.httpClient.put<U>(
             url,
             requestBody.body,
             {
-                responseType: 'text',
-                observe: 'response',
                 ...this.getOptions(requestBody, urlParams)
             }
         )
             .pipe(
-                // TODO: remove this when Angular issues are resolved
-                // https://github.com/angular/angular/issues/19090
-                // https://github.com/angular/angular/issues/19413
-                map(response => this.parseResponseBody(response.body)),
-                catchError(response => Observable.throw(this.parseResponseBody(response.error)))
+                catchError(response => Observable.throw(response.error))
             );
     }
 
-    patch(url: string, requestBody: RequestBody<any> = null, urlParams?: UrlParams) {
-        return this.httpClient.patch(
+    patch<T, U>(url: string, requestBody: RequestBody<T> = null, urlParams?: UrlParams): Observable<U> {
+        return this.httpClient.patch<U>(
             url,
             requestBody.body,
             {
-                responseType: 'text',
-                observe: 'response',
                 ...this.getOptions(requestBody, urlParams)
             }
         )
             .pipe(
-                // TODO: remove this when Angular issues are resolved
-                // https://github.com/angular/angular/issues/19090
-                // https://github.com/angular/angular/issues/19413
-                map(response => this.parseResponseBody(response.body)),
-                catchError(response => Observable.throw(this.parseResponseBody(response.error)))
+                catchError(response => Observable.throw(response.error))
             );
     }
 
-    delete(url, urlParams?: UrlParams) {
-        return this.httpClient.delete(
+    delete<T>(url, urlParams?: UrlParams): Observable<T> {
+        return this.httpClient.delete<T>(
             url,
             this.getOptions(undefined, urlParams)
         );
     }
 
-    private getOptions(requestBody: RequestBody<any>, urlParams?: UrlParams) {
+    private getOptions(requestBody: RequestBody<any>, urlParams?: UrlParams): { headers: HttpHeaders; params: HttpParams } {
         return {
             headers: this.parseHeaders(this.getHeaders(requestBody)),
             params: this.parseUrlParams(urlParams)
         };
     }
 
-    private handlePostRedirect<T>(response: HttpResponse<any>): Observable<HttpResponse<string>> {
+    private handlePostRedirect<T>(response: HttpResponse<T>): Observable<T> {
         const location = response.headers.get('Location');
         if (response.status !== 201 || isNull(location)) {
-            return of(response);
+            return of(response.body);
         }
 
-        return this.httpClient.get(
+        return this.httpClient.get<T>(
             location,
             {
-                // TODO: remove this when Angular issues are resolved
-                // https://github.com/angular/angular/issues/19090
-                // https://github.com/angular/angular/issues/19413
-                responseType: 'text',
-                observe: 'response',
                 ...this.getOptions(undefined)
             }
         );
     }
 
-    private parseResponseBody(responseBody: string): Object {
-        try {
-            return JSON.parse(responseBody);
-        } catch (error) {
-            return null;
-        }
-    }
-
     private parseHeaders(headers: Headers): HttpHeaders {
-        const params = reduce(
-            headers,
-            (httpHeaders, value, key) => httpHeaders.append(key, value),
-            new HttpHeaders()
-        );
-        return params;
+        return new HttpHeaders(headers);
     }
 
     private parseUrlParams(urlParams: UrlParams): HttpParams {

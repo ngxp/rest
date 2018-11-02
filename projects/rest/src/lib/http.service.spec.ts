@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import * as faker from 'faker';
@@ -8,7 +7,6 @@ import { UriListRequestBody } from './request-body.model';
 
 describe('HttpService', () => {
     let httpService: HttpService;
-    let httpClient: HttpClient;
     let httpController: HttpTestingController;
     const urlParams = { force: true };
     const body = { id: 1 };
@@ -35,7 +33,6 @@ describe('HttpService', () => {
         });
 
         httpService = TestBed.get(HttpService);
-        httpClient = TestBed.get(HttpClient);
         httpController = TestBed.get(HttpTestingController);
     });
 
@@ -188,9 +185,9 @@ describe('HttpService', () => {
     describe('put', () => {
         it(`puts a resource`, () => {
             httpService.put('/api/resource', requestBody)
-            .subscribe(value => {
-                expect(value).toBeObject();
-            });
+                .subscribe(value => {
+                    expect(value).toBeObject();
+                });
 
             const request = httpController.expectOne('/api/resource');
 
@@ -206,9 +203,9 @@ describe('HttpService', () => {
 
         it(`puts a resource with url params`, () => {
             httpService.put('/api/resource', requestBody, urlParams)
-            .subscribe(value => {
-                expect(value).toBeObject();
-            });
+                .subscribe(value => {
+                    expect(value).toBeObject();
+                });
 
             const request = httpController.expectOne('/api/resource?force=true');
 
@@ -244,9 +241,9 @@ describe('HttpService', () => {
     describe('patch', () => {
         it(`patches a resource`, () => {
             httpService.patch('/api/resource', requestBody)
-            .subscribe(value => {
-                expect(value).toBeObject();
-            });
+                .subscribe(value => {
+                    expect(value).toBeObject();
+                });
 
             const request = httpController.expectOne('/api/resource');
 
@@ -262,9 +259,9 @@ describe('HttpService', () => {
 
         it(`patches a resource with url params`, () => {
             httpService.patch('/api/resource', requestBody, urlParams)
-            .subscribe(value => {
-                expect(value).toBeObject();
-            });
+                .subscribe(value => {
+                    expect(value).toBeObject();
+                });
 
             const request = httpController.expectOne('/api/resource?force=true');
 

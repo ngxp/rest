@@ -44,7 +44,7 @@ export function hasEmbeddedResource(resource: Resource, linkRel: string): boolea
     return has(resource, `_embedded.${linkRel}`);
 }
 
-export function getEmbeddedResource<T>(resource: Resource, linkRel: string, throwIfNotExists = true): T {
+export function getEmbeddedResource<T>(resource: Resource, linkRel: string, throwIfNotExists = false): T {
     if (isUndefined(resource._embedded)) {
         if (throwIfNotExists) {
             throw new Error(`The given resource has no embedded resources: ${JSON.stringify(resource)}`);

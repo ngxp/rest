@@ -1,5 +1,6 @@
 import { cloneDeep } from 'lodash-es';
-import { Multipart, getEmbeddedResource, getUrl, toUriList } from '@bms-common/rest';
+import { Multipart } from '../../src/lib/multipart.model';
+import { getEmbeddedResource, getUrl, toUriList } from '../../src/lib/resource-utils';
 import { getUser } from './domain';
 import { OrderResource } from './domain.model';
 import { getAddressResource, getOrderListResource } from './resource';

@@ -1,7 +1,4 @@
 import { Observable, of } from 'rxjs';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/map';
-import { map } from 'rxjs/operators';
 import { HttpService, UrlParams } from './http.service';
 import { toRequestBody } from './request-body-factory';
 import { getEmbeddedResource, getUrl, hasEmbeddedResource } from './resource-utils';
@@ -42,9 +39,6 @@ export class ResourceWrapper {
                 getUrl(this.resourceObj, linkRel),
                 toRequestBody(body),
                 urlParams
-            )
-            .pipe(
-                map(response => (<U>response))
             );
     }
 
@@ -58,9 +52,6 @@ export class ResourceWrapper {
                 getUrl(this.resourceObj, linkRel),
                 toRequestBody(body),
                 urlParams
-            )
-            .pipe(
-                map(response => (<U>response))
             );
     }
 
@@ -74,9 +65,6 @@ export class ResourceWrapper {
                 getUrl(this.resourceObj, linkRel),
                 toRequestBody(body),
                 urlParams
-            )
-            .pipe(
-                map(response => (<U>response))
             );
     }
 
@@ -89,9 +77,6 @@ export class ResourceWrapper {
             .delete(
                 getUrl(this.resourceObj, linkRel),
                 urlParams
-            )
-            .pipe(
-                map(response => (<U>response))
             );
     }
 
@@ -147,9 +132,6 @@ export class ResourceWrapper {
             .get(
                 getUrl(resource, linkRel),
                 urlParams
-            )
-            .pipe(
-                map<Object, T>(responseObject => <T>responseObject)
             );
     }
 }
