@@ -1,21 +1,21 @@
 sudo: required
 addons:
-  chrome: stable
+    chrome: stable
 language: node_js
 node_js:
-- node
+    - 8
 script:
-- npm run test-ci:lib
-- npm run build-ci:lib
+    - npm run test-ci:lib
+    - npm run build-ci:lib
 before_deploy:
-- cp README.md dist/rest/README.md
-- cd dist/rest
+    - cp README.md dist/rest/README.md
+    - cd dist/rest
 deploy:
-  provider: npm
-  email: github@joost.io
-  skip_cleanup: true
-  api_key:
-    secure: IkfkLZCCmViUuYltxHRuf4Ums5R86qWZ3/TXlC+e5cN6+oRNRCvhDvKcAcTrDquBuveoRzkaymCIgGVTK5VtdKhgFYo5ecymSLoeRwEGuF7H9qRlg8hxkb+AcfdDns7r+AvmQQo76rVjWFEdp/TwCunW7ZHsUNOTnT4bGkCEF2mVSozxE3xzpcqm91fgPc9Ask4BayqhjKzN/ADsSHJi6ub7m8y3oxaSb4coJd/iQh/CIqGELt275Zu4XkWI4gLbAKX3Dr8GcTNvmlk0FfyfHO3SDhlyKgh4jTybe7090F51EJYsvTsLIlhMQzJ71ScTSnaxCb1Rvx+0DfCU07SjnYkToAmyEnnUrNQjDDY9EAaHUklmd+HapB5eC9US4MbfrppK1Ac08vydDnSeFzBVi3JNYV9iQ6EM/iiVCWbnXrqXD7YWN2vOWkaAH2fd3fZmLhCa63/EvxqMGbQRmR4y/dDRJkf+roB+MVjOjYa710HEZVmMDUPnACMre8cDP/hiMdEkutvRtZpOVkM7eP5Ko4yAzsD75DQorpuWypF7sbMxeNmkv+0PIXdNGaSmlR/7CkIzpwyY3sPnR68tKV+f3RpSzkVKGXvpUp7RL5qoKvsUwMGwL7rWopZQQZT79UN/O81PVrb2c3wVKaXHVu12vNUCkYlNnE09X/IkEZ3SXk4=
-  on:
-    tags: true
-    repo: ngxp/rest
+    provider: npm
+    email: github@joost.io
+    skip_cleanup: true
+    api_key:
+        secure: IkfkLZCCmViUuYltxHRuf4Ums5R86qWZ3/TXlC+e5cN6+oRNRCvhDvKcAcTrDquBuveoRzkaymCIgGVTK5VtdKhgFYo5ecymSLoeRwEGuF7H9qRlg8hxkb+AcfdDns7r+AvmQQo76rVjWFEdp/TwCunW7ZHsUNOTnT4bGkCEF2mVSozxE3xzpcqm91fgPc9Ask4BayqhjKzN/ADsSHJi6ub7m8y3oxaSb4coJd/iQh/CIqGELt275Zu4XkWI4gLbAKX3Dr8GcTNvmlk0FfyfHO3SDhlyKgh4jTybe7090F51EJYsvTsLIlhMQzJ71ScTSnaxCb1Rvx+0DfCU07SjnYkToAmyEnnUrNQjDDY9EAaHUklmd+HapB5eC9US4MbfrppK1Ac08vydDnSeFzBVi3JNYV9iQ6EM/iiVCWbnXrqXD7YWN2vOWkaAH2fd3fZmLhCa63/EvxqMGbQRmR4y/dDRJkf+roB+MVjOjYa710HEZVmMDUPnACMre8cDP/hiMdEkutvRtZpOVkM7eP5Ko4yAzsD75DQorpuWypF7sbMxeNmkv+0PIXdNGaSmlR/7CkIzpwyY3sPnR68tKV+f3RpSzkVKGXvpUp7RL5qoKvsUwMGwL7rWopZQQZT79UN/O81PVrb2c3wVKaXHVu12vNUCkYlNnE09X/IkEZ3SXk4=
+    on:
+        tags: true
+        repo: ngxp/rest

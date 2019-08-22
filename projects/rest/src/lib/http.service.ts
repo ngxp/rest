@@ -51,7 +51,7 @@ export class HttpService {
             }
         )
             .pipe(
-                catchError(response => Observable.throw(response.error))
+                catchError(response => throwError(response.error))
             );
     }
 
@@ -64,7 +64,7 @@ export class HttpService {
             }
         )
             .pipe(
-                catchError(response => Observable.throw(response.error))
+                catchError(response => throwError(response.error))
             );
     }
 
