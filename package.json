@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build-ci:lib": "ng build rest",
+    "build-ci:lib": "ng build rest --prod",
     "test-ci:lib": "ng test rest --watch=false --browsers=ChromeHeadless",
     "release": "standard-version",
     "test": "ng test",
