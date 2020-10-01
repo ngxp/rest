@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.0.0"></a>
+# [3.0.0](https://github.com/ngxp/rest/compare/v2.0.0...v3.0.0) (2020-10-01)
+
+
+
 <a name="2.0.0"></a>
 # [2.0.0](https://github.com/ngxp/rest/compare/v1.0.1...v2.0.0) (2020-10-01)
 
