@@ -29,5 +29,8 @@
     "bugs": {
         "url": "https://github.com/ngxp/rest/issues"
     },
+    "dependencies": {
+      "tslib": "^2.0.0"
+    },
     "license": "MIT"
 }
