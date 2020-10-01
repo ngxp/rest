@@ -1,11 +1,11 @@
 {
   "name": "rest-example",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build-ci:lib": "ng build rest",
+    "build-ci:lib": "ng build rest --prod",
     "test-ci:lib": "ng test rest --watch=false --browsers=ChromeHeadless",
     "release": "standard-version",
     "test": "ng test",
