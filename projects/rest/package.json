@@ -1,6 +1,6 @@
 {
     "name": "@ngxp/rest",
-    "version": "2.0.0",
+    "version": "3.0.2",
     "peerDependencies": {
         "@angular/common": "~8.2.3",
         "@angular/core": "~8.2.3",
