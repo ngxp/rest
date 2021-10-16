@@ -1,11 +1,11 @@
 {
     "name": "@ngxp/rest",
-    "version": "4.0.0",
+    "version": "5.0.0",
     "peerDependencies": {
-        "@angular/common": "~8.2.3",
-        "@angular/core": "~8.2.3",
+        "@angular/common": "~11.2.14",
+        "@angular/core": "~11.2.14",
         "lodash-es": "^4.17.11",
-        "rxjs": "~6.5.2"
+        "rxjs": "~6.6.3"
     },
     "author": {
         "name": "Joost Zöllner",

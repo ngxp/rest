@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.0.0"></a>
+# [5.0.0](https://github.com/ngxp/rest/compare/v4.0.0...v5.0.0) (2021-10-16)
+
+
+### Features
+
+* update to Angular v11 ([b162286](https://github.com/ngxp/rest/commit/b162286))
+
+
+
 <a name="4.0.0"></a>
 # [4.0.0](https://github.com/ngxp/rest/compare/v3.0.2...v4.0.0) (2020-10-01)
 
