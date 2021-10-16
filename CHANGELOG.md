@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="6.0.0"></a>
+# [6.0.0](https://github.com/ngxp/rest/compare/v5.0.0...v6.0.0) (2021-10-16)
+
+### Features
+
+* update to Angular v12 ([d38c7a6](https://github.com/ngxp/rest/commit/d38c7a6))
+
+
 <a name="5.0.0"></a>
 # [5.0.0](https://github.com/ngxp/rest/compare/v4.0.0...v5.0.0) (2021-10-16)
 

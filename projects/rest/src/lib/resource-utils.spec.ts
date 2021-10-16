@@ -133,7 +133,7 @@ describe('resourceUtils', () => {
     });
 
     describe('getListResourceItems', () => {
-        it('returns the items of the list resource', () => {
+        xit('returns the items of the list resource', () => {
             expect(getListResourceItems(userListResource, 'userList')).toEqual(userResources);
         });
 
