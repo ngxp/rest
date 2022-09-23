@@ -1,6 +1,8 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [7.0.0](https://github.com/ngxp/rest/compare/v6.0.0...v7.0.0) (2022-09-23)
 
 <a name="6.0.0"></a>
 # [6.0.0](https://github.com/ngxp/rest/compare/v5.0.0...v6.0.0) (2021-10-16)
