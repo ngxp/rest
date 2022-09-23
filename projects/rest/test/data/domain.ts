@@ -1,4 +1,4 @@
-import * as faker from 'faker';
+import { faker } from '@faker-js/faker';
 import { cloneDeep, pick, times } from 'lodash-es';
 import { Address, AddressCityUpdate, Order, User } from './domain.model';
 
