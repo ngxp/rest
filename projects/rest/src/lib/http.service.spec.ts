@@ -1,6 +1,6 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import * as faker from 'faker';
+import { faker } from '@faker-js/faker';
 import { HttpService } from './http.service';
 import { toRequestBody } from './request-body-factory';
 import { UriListRequestBody } from './request-body.model';
