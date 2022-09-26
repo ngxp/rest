@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.0.1](https://github.com/ngxp/rest/compare/v7.0.0...v7.0.1) (2022-09-26)
+
 ## [7.0.0](https://github.com/ngxp/rest/compare/v6.0.0...v7.0.0) (2022-09-23)
 
 <a name="6.0.0"></a>
