@@ -38,7 +38,7 @@ export class HttpService {
         )
             .pipe(
                 switchMap(response => this.handlePostRedirect(response)),
-                catchError(response => throwError(response.error))
+                catchError(response => throwError(() => response.error))
             );
     }
 
@@ -51,7 +51,7 @@ export class HttpService {
             }
         )
             .pipe(
-                catchError(response => throwError(response.error))
+                catchError(response => throwError(() => response.error))
             );
     }
 
@@ -64,7 +64,7 @@ export class HttpService {
             }
         )
             .pipe(
-                catchError(response => throwError(response.error))
+                catchError(response => throwError(() => response.error))
             );
     }
 

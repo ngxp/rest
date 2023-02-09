@@ -21,7 +21,7 @@ describe('ResourceFactory', () => {
             ]
         });
 
-        resourceFactory = TestBed.get(ResourceFactory);
+        resourceFactory = TestBed.inject(ResourceFactory);
     });
 
     it('should be initialized', () => {

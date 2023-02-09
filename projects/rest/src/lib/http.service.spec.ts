@@ -32,8 +32,8 @@ describe('HttpService', () => {
             ]
         });
 
-        httpService = TestBed.get(HttpService);
-        httpController = TestBed.get(HttpTestingController);
+        httpService = TestBed.inject(HttpService);
+        httpController = TestBed.inject(HttpTestingController);
     });
 
     it('should be initialized', () => {

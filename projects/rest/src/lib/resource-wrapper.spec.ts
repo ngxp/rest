@@ -27,8 +27,8 @@ describe('ResourceWrapper', () => {
             ]
         });
 
-        httpMock = TestBed.get(HttpTestingController);
-        resource = TestBed.get(ResourceFactory);
+        httpMock = TestBed.inject(HttpTestingController);
+        resource = TestBed.inject(ResourceFactory);
     });
 
     describe('get', () => {
