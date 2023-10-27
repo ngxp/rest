@@ -2,9 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="9.0.0"></a>
+# [9.0.0](https://github.com/ngxp/rest/compare/v9.0.0...v8.0.0) (2023-10-27)
+
+### Features
+
+* update to Angular v16.2 ([e8dcfb4](https://github.com/ngxp/rest/commit/e8dcfb4))
+* upgrade NPM packages ([3af0f0d](https://github.com/ngxp/rest/commit/3af0f0d))
+
+<a name="8.0.0"></a>
+# [8.0.0](https://github.com/ngxp/rest/compare/v8.0.0...v7.0.1) (2023-02-09)
+
+### Features
+
+* update to Angular v15 ([b5d15e9](https://github.com/ngxp/rest/commit/b5d15e9))
+
 ### [7.0.1](https://github.com/ngxp/rest/compare/v7.0.0...v7.0.1) (2022-09-26)
 
 ## [7.0.0](https://github.com/ngxp/rest/compare/v6.0.0...v7.0.0) (2022-09-23)
+
+### Features
+
+* update to Angular v14 ([6012cf0](https://github.com/ngxp/rest/commit/6012cf0))
 
 <a name="6.0.0"></a>
 # [6.0.0](https://github.com/ngxp/rest/compare/v5.0.0...v6.0.0) (2021-10-16)
