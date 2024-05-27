@@ -2,8 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="10.0.0"></a>
+# [10.0.0](https://github.com/ngxp/rest/compare/v9.0.0...v10.0.0) (2024-05-27)
+
+### Features
+
+* Upgrade Angular to 17.3 ([d9c4761](https://github.com/ngxp/rest/commit/d9c4761))
+* Upgrade third party modules ([90f4282](https://github.com/ngxp/rest/commit/90f4282))
+
 <a name="9.0.0"></a>
-# [9.0.0](https://github.com/ngxp/rest/compare/v9.0.0...v8.0.0) (2023-10-27)
+# [9.0.0](https://github.com/ngxp/rest/compare/v8.0.0...v9.0.0) (2023-10-27)
 
 ### Features
 
@@ -11,7 +19,7 @@ All notable changes to this project will be documented in this file. See [standa
 * upgrade NPM packages ([3af0f0d](https://github.com/ngxp/rest/commit/3af0f0d))
 
 <a name="8.0.0"></a>
-# [8.0.0](https://github.com/ngxp/rest/compare/v8.0.0...v7.0.1) (2023-02-09)
+# [8.0.0](https://github.com/ngxp/rest/compare/v7.0.1...v8.0.0) (2023-02-09)
 
 ### Features
 
