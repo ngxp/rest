@@ -7,7 +7,7 @@ import {
     BrowserDynamicTestingModule,
     platformBrowserDynamicTesting
 } from '@angular/platform-browser-dynamic/testing';
-import 'core-js/es7/reflect';
+import 'core-js/es/reflect';
 
 import 'jasmine-expect';
 import 'jasmine-extra-matchers';
