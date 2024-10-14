@@ -1,10 +1,11 @@
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { Address, AddressCityUpdate, AddressResource, getAddressResource, getOrder, getOrderListResource, getPartialAddress, getUpdatedAddress, getUpdatedAddressResource, getUserResource, Order, OrderListResource, UserResource } from '../../test';
 import { ResourceFactory } from './resource-factory';
 import { getEmbeddedResource, getUrl } from './resource-utils';
 import { Resource } from './resource.model';
 import { RestModule } from './rest.module';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('ResourceWrapper', () => {
     let resource: ResourceFactory;
@@ -21,11 +22,9 @@ describe('ResourceWrapper', () => {
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            imports: [
-                HttpClientTestingModule,
-                RestModule
-            ]
-        });
+    imports: [RestModule],
+    providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+});
 
         httpMock = TestBed.inject(HttpTestingController);
         resource = TestBed.inject(ResourceFactory);
