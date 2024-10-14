@@ -1,6 +1,13 @@
 # Changelog
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
+
+<a name="11.0.0"></a>
+# [11.0.0](https://github.com/fuerst/rest/compare/v10.0.0...v11.0.0) (2024-10-14)
+
+### Features
+
+* Upgrade Angular to 18.0
 
 <a name="10.0.0"></a>
 # [10.0.0](https://github.com/ngxp/rest/compare/v9.0.0...v10.0.0) (2024-05-27)
