@@ -1,10 +1,11 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { getUserResource } from '../../test';
 import { ResourceFactory } from './resource-factory';
 import { getUrl } from './resource-utils';
 import { ResourceWrapper } from './resource-wrapper';
 import { RestModule } from './rest.module';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('ResourceFactory', () => {
     let resourceFactory: ResourceFactory;
@@ -12,14 +13,13 @@ describe('ResourceFactory', () => {
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            imports: [
-                HttpClientTestingModule,
-                RestModule
-            ],
-            providers: [
-                ResourceFactory
-            ]
-        });
+    imports: [RestModule],
+    providers: [
+        ResourceFactory,
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+});
 
         resourceFactory = TestBed.inject(ResourceFactory);
     });
