@@ -1,27 +1,27 @@
-import { faker } from '@faker-js/faker';
-import { cloneDeep, pick, times } from 'lodash-es';
-import { Address, AddressCityUpdate, Order, User } from './domain.model';
+import { faker } from "@faker-js/faker";
+import { cloneDeep, pick, times } from "lodash-es";
+import { Address, AddressCityUpdate, Order, User } from "./domain.model";
 
 const users: User[] = times(5, () => ({
-    firstName: faker.name.firstName(),
-    lastName: faker.name.lastName()
+    firstName: faker.person.firstName(),
+    lastName: faker.person.lastName(),
 }));
 
 const address: Address = {
-    street: faker.address.streetAddress(),
-    city: faker.address.city()
+    street: faker.location.streetAddress(),
+    city: faker.location.city(),
 };
 
 const updatedAddress = cloneDeep(address);
-updatedAddress.city = faker.address.city();
+updatedAddress.city = faker.location.city();
 
 const orders: Order[] = [
     {
-        date: (new Date()).toDateString()
+        date: new Date().toDateString(),
     },
     {
-        date: (new Date()).toDateString()
-    }
+        date: new Date().toDateString(),
+    },
 ];
 
 export function getUsers(): User[] {
@@ -41,7 +41,7 @@ export function getUpdatedAddress(): Address {
 }
 
 export function getPartialAddress(): AddressCityUpdate {
-    return (<AddressCityUpdate> pick(cloneDeep(updatedAddress), ['city']));
+    return <AddressCityUpdate>pick(cloneDeep(updatedAddress), ["city"]);
 }
 
 export function getOrders(): Order[] {
