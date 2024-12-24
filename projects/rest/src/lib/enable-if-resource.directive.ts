@@ -2,7 +2,10 @@ import { Directive, DoCheck, HostBinding, Input, OnChanges } from '@angular/core
 import { hasLink } from './resource-utils';
 import { Resource } from './resource.model';
 
-@Directive({ selector: '[enableIfResource]' })
+@Directive({
+    selector: '[enableIfResource]',
+    standalone: false
+})
 export class EnableIfResourceDirective implements OnChanges, DoCheck {
 
     @HostBinding('disabled')
