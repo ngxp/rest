@@ -2,8 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+<a name="12.0.0"></a>
+# [12.0.0](https://github.com/ngxp/rest/compare/v11.0.0...v12.0.0) (2024-12-24)
+
+### Features
+
+* Upgrade Angular to 19.0
+
 <a name="11.0.0"></a>
-# [11.0.0](https://github.com/fuerst/rest/compare/v10.0.0...v11.0.0) (2024-10-14)
+# [11.0.0](https://github.com/ngxp/rest/compare/v10.0.0...v11.0.0) (2024-10-14)
 
 ### Features
 
