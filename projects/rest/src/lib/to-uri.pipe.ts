@@ -5,7 +5,8 @@ import { LinkRel } from './resource.linkrel';
 import { Resource } from './resource.model';
 
 @Pipe({
-    name: 'toUri'
+    name: 'toUri',
+    standalone: false
 })
 export class ToUriPipe implements PipeTransform {
 

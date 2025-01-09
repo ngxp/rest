@@ -2,7 +2,10 @@ import { Directive, Input, OnChanges, TemplateRef, ViewContainerRef, DoCheck } f
 import { hasLink } from './resource-utils';
 import { Resource } from './resource.model';
 
-@Directive({ selector: '[ifResource]' })
+@Directive({
+    selector: '[ifResource]',
+    standalone: false
+})
 export class IfResourceDirective implements OnChanges, DoCheck {
 
     private hasView = false;
