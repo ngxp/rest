@@ -25,8 +25,10 @@ jobs:
       - run: npm run test-ci:lib
       - run: npm run build-ci:lib
       - run: cp README.md dist/$PROJECT/README.md
-      - run: cd dist/$PROJECT/
-      - run: NODE_AUTH_TOKEN="" npm publish
+      - run: cd dist/$PROJECT/ && echo npm publish
+        env:
+          NODE_AUTH_TOKEN: ""
+          NPM_TOKEN: ""
         if: startsWith(github.ref, 'refs/tags/v')
 
 
