@@ -21,8 +21,10 @@ jobs:
         with:
           node-version: '24'
           registry-url: 'https://registry.npmjs.org'
-      - run: npm install -g npm@latest # Update to latest npm to ensure OIDC support for trusted publishing
       - run: npm install
+      - run: npm install -g npm@latest # Update to latest npm to ensure OIDC support for trusted publishing
+      - name: Clear auth token for OIDC
+        run: echo "NODE_AUTH_TOKEN=" >> $GITHUB_ENV
       - run: npm run test-ci:lib
       - run: npm run build-ci:lib
       - run: cp README.md dist/$PROJECT/README.md
