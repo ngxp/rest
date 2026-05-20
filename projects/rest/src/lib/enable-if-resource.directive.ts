@@ -8,7 +8,9 @@ import { Resource } from './resource.model';
 })
 export class EnableIfResourceDirective implements OnChanges, DoCheck {
 
-    @HostBinding('disabled')
+    @HostBinding('attr.disabled')
+    get disabledAttr() { return this.disabled ? '' : null; }
+
     disabled = true;
 
     @Input()
