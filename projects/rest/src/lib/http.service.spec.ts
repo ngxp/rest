@@ -4,7 +4,7 @@ import { faker } from '@faker-js/faker';
 import { HttpService } from './http.service';
 import { toRequestBody } from './request-body-factory';
 import { UriListRequestBody } from './request-body.model';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi, withXhr } from '@angular/common/http';
 
 describe('HttpService', () => {
     let httpService: HttpService;
@@ -28,7 +28,7 @@ describe('HttpService', () => {
     imports: [],
     providers: [
         HttpService,
-        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClient(withXhr(), withInterceptorsFromDi()),
         provideHttpClientTesting()
     ]
 });

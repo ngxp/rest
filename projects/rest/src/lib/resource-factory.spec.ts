@@ -5,7 +5,7 @@ import { ResourceFactory } from './resource-factory';
 import { getUrl } from './resource-utils';
 import { ResourceWrapper } from './resource-wrapper';
 import { RestModule } from './rest.module';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi, withXhr } from '@angular/common/http';
 
 describe('ResourceFactory', () => {
     let resourceFactory: ResourceFactory;
@@ -16,7 +16,7 @@ describe('ResourceFactory', () => {
     imports: [RestModule],
     providers: [
         ResourceFactory,
-        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClient(withXhr(), withInterceptorsFromDi()),
         provideHttpClientTesting()
     ]
 });
