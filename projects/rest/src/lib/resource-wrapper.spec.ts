@@ -5,7 +5,7 @@ import { ResourceFactory } from './resource-factory';
 import { getEmbeddedResource, getUrl } from './resource-utils';
 import { Resource } from './resource.model';
 import { RestModule } from './rest.module';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi, withXhr } from '@angular/common/http';
 
 describe('ResourceWrapper', () => {
     let resource: ResourceFactory;
@@ -23,7 +23,7 @@ describe('ResourceWrapper', () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
     imports: [RestModule],
-    providers: [provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+    providers: [provideHttpClient(withXhr(), withInterceptorsFromDi()), provideHttpClientTesting()]
 });
 
         httpMock = TestBed.inject(HttpTestingController);
